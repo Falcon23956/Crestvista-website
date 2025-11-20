@@ -1,0 +1,20 @@
+name: Update Listings
+on:
+  repository_dispatch:
+    types: [update_listings]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Write new listings
+        run: |
+          echo "${{ github.event.client_payload.listings }}" > listings.json
+      - name: Commit + Push
+        run: |
+          git config --global user.email "bot@crestvista.com"
+          git config --global user.name "CrestVista Bot"
+          git add listings.json
+          git commit -m "Listings updated via admin panel"
+          git push

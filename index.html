@@ -1,92 +1,38 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang='en'>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <title>Crestvista Properties LTD</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" href="assets/logo.png">
+<link rel='stylesheet' href='styles.css'>
+<script defer src='script.js'></script>
 </head>
 <body>
-<header class="header">
-  <div class="header-left"><img src="assets/logo.png" class="logo"><div class="brand"><h1>Crestvista Properties LTD</h1><p class="tag">Where Value Meets Excellence.</p></div></div>
-  <nav class="nav"><a href="#properties">Properties</a><a href="#services">Services</a><a href="#contact">Contact</a></nav>
-  <div class="controls"><button id="themeToggle">🌗</button></div>
+<header class='header'>
+  <img src='assets/logo.png' class='logo'>
+  <h1>Crestvista Properties LTD</h1>
 </header>
 
-<section class="hero">
-  <div class="hero-inner"><h2>Premium Real Estate Solutions</h2><p>Trusted property management, sales, letting & advisory in Nairobi.</p><a href="#properties" class="btn primary">Explore Properties</a></div>
+<section class='hero'>
+  <h2>Where Value Meets Excellence</h2>
+  <button onclick='scrollToListings()'>Explore Properties</button>
 </section>
 
-<section class="searchbar">
-  <input id="searchInput" placeholder="Search by title or location">
-  <select id="bedsFilter"><option value="">Any beds</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
-  <input id="minPrice" placeholder="Min price">
-  <input id="maxPrice" placeholder="Max price">
-  <button id="applyFilters" class="btn">Filter</button>
-  <button id="clearFilters" class="btn outline">Clear</button>
-</section>
+<section id='listings' class='listings'></section>
 
-<section id="properties" class="properties">
-  <h2>Properties</h2>
-  <div id="grid" class="property-grid"></div>
-</section>
+<!-- Admin Login -->
+<div id='adminLogin' class='admin-login-panel'>
+  <h3>Admin Login</h3>
+  <input type='password' id='adminPass' placeholder='Enter admin password'>
+  <button onclick='loginAdmin()'>Login</button>
+</div>
 
-<!-- detail modal -->
-<div id="detailModal" class="modal" aria-hidden="true"><div class="modal-inner"><button class="modal-close" id="closeDetail">×</button><div id="detailContent"></div></div></div>
+<!-- Admin Dashboard -->
+<div id='adminPanel' class='admin-panel hidden'>
+  <h2>Admin Dashboard</h2>
+  <textarea id='listingsEditor'></textarea>
+  <button onclick='saveListings()' class='save-btn'>Save Listings</button>
+</div>
 
-<!-- admin panel -->
-<section class="admin" id="admin">
-  <h2>Admin — Manage Listings (local only)</h2>
-  <form id="adminForm">
-    <input id="adm_id" placeholder="id (e.g. p4)">
-    <input id="adm_title" placeholder="Title">
-    <input id="adm_location" placeholder="Location">
-    <input id="adm_price" placeholder="Price (number)">
-    <input id="adm_beds" placeholder="Beds">
-    <input id="adm_image" placeholder="Image URL">
-    <textarea id="adm_desc" placeholder="Description"></textarea>
-    <button type="submit" class="btn primary">Save Listing</button>
-    <button type="button" id="exportBtn" class="btn outline">Export JSON</button>
-    <input type="file" id="importFile" accept=".json">
-  </form>
-</section>
-
-<section id="services" class="services">
-  <h2>Our Services</h2>
-  <div class="service-grid">
-    <div class="service"><img src="assets/icons/management.svg"><h3>Property Management</h3><p>Full-service property oversight, rent collection and maintenance coordination.</p></div>
-    <div class="service"><img src="assets/icons/letting.svg"><h3>Letting Services</h3><p>Tenant sourcing, screening and lease management to keep your property occupied.</p></div>
-    <div class="service"><img src="assets/icons/sales.svg"><h3>Property Sales</h3><p>Market listing, negotiation and closing support to maximize sale value.</p></div>
-    <div class="service"><img src="assets/icons/advisory.svg"><h3>Investment Advisory</h3><p>Data-driven advice to help you grow and protect real estate assets.</p></div>
-  </div>
-</section>
-
-<section class="cta" id="contact">
-  <h2>Contact Us</h2>
-  <p>0758625209 / 0739944751 · info@crestvistapropertiesltd.co.ke</p>
-  <form id="contactForm" action="mailto:info@crestvistapropertiesltd.co.ke" method="post" enctype="text/plain">
-    <input name="name" placeholder="Your name" required>
-    <input name="email" placeholder="Your email" required>
-    <textarea name="message" placeholder="Message" required></textarea>
-    <button class="btn primary" type="submit">Send (mailto)</button>
-    <p style="font-size:12px;margin-top:8px">Or set up Formspree: replace form action with your Formspree endpoint to get POST email handling.</p>
-  </form>
-</section>
-
-<footer class="footer">
-  <div class="footer-inner"><img src="assets/logo.png" class="footer-logo"><div>Crestvista Properties LTD · Lonak Business Center, Kasarani</div></div>
-
-<section id="admin" class="admin-panel">
-<h2>Admin – Update Listings</h2>
-<button onclick="savePAT()">Save GitHub Token</button>
-<button onclick="dispatchUpdate()">Save Listings to GitHub</button>
-</section>
-
-</footer>
-
-<a href="https://wa.me/254758625209" class="whatsapp-float">Chat</a>
-
-<script src="script.js"></script>
 </body>
 </html>
