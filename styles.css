@@ -1,11 +1,35 @@
+:root{--charcoal:#0C0F14;--white:#fff;--gold:#D4AF37;--muted:#666}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial;background:var(--white);color:var(--charcoal);overflow-x:hidden}
+.header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(0,0,0,0.05)}
+.logo{height:56px}
+.brand h1{margin:0;font-size:18px}
+.hero{background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.2)),url('https://images.unsplash.com/photo-1560185127-6a8c1d5f79b1?auto=format&w=1600') center/cover no-repeat;color:var(--white);padding:60px 20px;text-align:center}
+.hero-inner h2{font-size:28px;margin:0 0 10px}
+.btn{padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block}
+.primary{background:var(--gold);color:var(--charcoal);font-weight:700}
+.outline{border:2px solid rgba(212,175,55,.95);background:transparent;color:var(--charcoal);margin-left:8px}
+.searchbar{display:flex;gap:8px;align-items:center;padding:12px 20px;flex-wrap:wrap;background:#fafafa}
+.searchbar input, .searchbar select{padding:8px;border-radius:8px;border:1px solid #ddd}
+.property-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;padding:20px}
+.card img{width:100%;height:180px;object-fit:cover}
+.card{background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,.06);overflow:hidden;transition:transform .2s}
+.card:hover{transform:translateY(-6px)}
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);padding:20px}
+.modal[aria-hidden="false"]{display:flex}
+.modal-inner{background:#fff;border-radius:12px;max-width:900px;width:100%;position:relative;padding:20px}
+.modal-close{position:absolute;right:12px;top:8px;font-size:22px;border:none;background:transparent}
+.admin{padding:20px;background:#fff;border-top:1px solid #eee}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:20px}
+.service img{width:48px;height:48px}
+.cta{padding:40px;background:var(--charcoal);color:#fff;text-align:center}
+.footer{padding:20px;text-align:center;background:#0c0f14;color:#fff}.footer-logo{max-width:160px}
+.whatsapp-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:12px 18px;border-radius:28px;text-decoration:none;font-weight:800}
 
-body { margin:0; font-family:Arial; background:#0C0F14; color:white; }
-.logo { width:90px; }
-.hidden { display:none; }
-.admin-login-panel, .admin-panel {
-  background:#111; padding:20px; margin:20px; border-radius:10px;
-  animation: fadeIn 0.8s ease;
+/* responsive adjustments */
+@media(max-width:800px){
+  .header{padding:12px}.logo{height:48px}.searchbar{flex-direction:column;align-items:stretch}
+  .footer-logo{max-width:120px}
 }
-textarea { width:100%; height:250px; }
-.save-btn { padding:10px 20px; background:gold; border:none; cursor:pointer; }
-@keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+/* dark mode */
+body.dark{background:#0b0d10;color:#ddd}
+body.dark .hero{filter:brightness(.6)}body.dark .modal-inner{background:#0b0d10;color:#ddd}
