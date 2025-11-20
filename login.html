@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crestvista Admin Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="admin_login.js"></script>
+    <style>
+        body { display:flex;justify-content:center;align-items:center;height:100vh;background:#f7f7f7;font-family:'Segoe UI'; }
+        .login-box { background:white;padding:25px 30px;width:340px;border-radius:12px;
+                     box-shadow:0 6px 18px rgba(0,0,0,0.1);animation:fadeIn 0.6s ease; }
+        input { width:100%;padding:12px;margin-top:12px;border-radius:8px;border:1px solid #ccc; }
+        button { margin-top:18px;width:100%;padding:12px;background:#0a7a3b;color:white;border:none;
+                 border-radius:8px;cursor:pointer;transition:0.25s; }
+        button:hover { background:#06632f; }
+        @keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+        .error { color:red;margin-top:10px;display:none; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Admin Login</h2>
+        <input id="username" placeholder="Username" autocomplete="off">
+        <input id="password" type="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <div id="error" class="error">Invalid credentials</div>
+    </div>
+</body>
+</html>
